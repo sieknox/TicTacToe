@@ -2,12 +2,78 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Change from center to flex-start */
     height: 100vh;
     background-color: #333;
     margin: 0;
     font-family: Arial, sans-serif;
     color: #fff;
+    padding-top: 70px; /* Add padding to prevent content from being hidden under the header */
+}
+
+header {
+    width: 100%;
+    background-color: #444;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#title {
+    color: #ff0; /* Same color as the winner/loser text */
+    font-weight: bold;
+    margin: 0;
+    font-size: 24px;
+    padding-left: 20px; /* Add padding to the left */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: #87cefa; /* Light blue text */
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+nav button:hover {
+    color: #fff;
+}
+
+#settings {
+    color: #87cefa; /* Light blue text */
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px; /* Add padding to the right */
+}
+
+.main-content {
+    margin-top: 150px; /* Shift everything down by 150px */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 #message-container {
