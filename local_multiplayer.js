@@ -74,8 +74,9 @@ function handleClick(e) {
     const cell = e.target;
     const currentClass = isCircleTurn ? 'circle' : 'x';
     placeMark(cell, currentClass);
-    if (checkWin(currentClass)) {
-        endGame(false);
+    const winningCombination = checkWin(currentClass);
+    if (winningCombination) {
+        endGame(false, winningCombination);
     } else if (isDraw()) {
         endGame(true);
     } else {
@@ -85,11 +86,12 @@ function handleClick(e) {
     }
 }
 
-function endGame(draw) {
+function endGame(draw, winningCombination = null) {
     if (draw) {
         winningMessageTextElement.innerText = 'Draw!';
     } else {
         winningMessageTextElement.innerText = `${isCircleTurn ? "O's" : "X's"} Wins!`;
+        highlightWinningCells(winningCombination);
     }
     winningMessageElement.classList.remove('hidden');
     turnIndicator.classList.add('hidden'); // Hide turn indicator when game ends
@@ -121,9 +123,16 @@ function updateTurnIndicator() {
 }
 
 function checkWin(currentClass) {
-    return winningCombinations.some(combination => {
-        return combination.every(index => {
-            return cellElements[index].classList.contains(currentClass);
-        });
+    for (const combination of winningCombinations) {
+        if (combination.every(index => cellElements[index].classList.contains(currentClass))) {
+            return combination;
+        }
+    }
+    return null;
+}
+
+function highlightWinningCells(winningCombination) {
+    winningCombination.forEach(index => {
+        cellElements[index].classList.add('winning');
     });
 }
