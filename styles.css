@@ -1,8 +1,10 @@
+/* Existing Styles */
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Change from center to flex-start */
+    justify-content: flex-start;
     height: 100vh;
     background-color: #333;
     margin: 0;
@@ -19,7 +21,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; /* Fix the header at the top */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -33,11 +35,12 @@ header {
 }
 
 #title {
-    color: #ff0; /* Same color as the winner/loser text */
+    color: #ff0;
     font-weight: bold;
     margin: 0;
     font-size: 24px;
-    padding-left: 20px; /* Add padding to the left */
+    padding-left: 20px;
+    text-decoration: none; /* Ensure no underline */
 }
 
 nav {
@@ -47,25 +50,26 @@ nav {
     flex-grow: 1;
 }
 
-nav button {
+nav a, nav button {
     background: none;
     border: none;
-    color: #87cefa; /* Light blue text */
+    color: #87cefa;
     font-size: 16px;
     margin: 0 10px;
     cursor: pointer;
+    text-decoration: none; /* Ensure no underline */
     transition: color 0.3s;
 }
 
-nav button:hover {
+nav a:hover, nav button:hover {
     color: #fff;
 }
 
 #settings {
-    color: #87cefa; /* Light blue text */
+    color: #87cefa;
     font-size: 16px;
     cursor: pointer;
-    margin-right: 20px; /* Add padding to the right */
+    margin-right: 20px;
 }
 
 .main-content {
@@ -74,12 +78,21 @@ nav button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+#mode-indicator {
+    font-size: 24px;
+    color: #87cefa; /* Change color to blue */
+    margin-bottom: 40px; /* Add buffer space below */
 }
 
 #message-container {
     text-align: center;
     margin-bottom: 20px;
-    height: 80px; /* Increased height to accommodate the new message */
+    height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,6 +103,12 @@ nav button:hover {
     font-size: 18px;
     color: #ff0;
     margin-bottom: 10px;
+}
+
+#turn-indicator {
+    font-size: 18px;
+    color: #ff0; 
+    margin-bottom: 20px;
 }
 
 #winning-message {
@@ -164,4 +183,56 @@ button:hover {
 
 .cell.disabled {
     pointer-events: none;
+}
+
+/* Additional Styles for Landing Page */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.welcome-section h2 {
+    color: #ff0;
+    font-size: 32px;
+}
+
+.game-options h3, .info-section h3 {
+    color: #ff0;
+}
+
+.info-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info-section {
+    background-color: #555;
+    padding: 20px;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+}
+
+footer {
+    background-color: #444;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #87cefa;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+footer a:hover {
+    color: #fff;
 }
